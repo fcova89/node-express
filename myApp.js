@@ -2,7 +2,7 @@ var express = require('express');
 const path = require('path');
 
 let jsonMessage = {
-  "message":"Jello json"
+  "message": "Hello json"
 }
 
 var app = express();
