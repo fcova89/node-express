@@ -10,9 +10,11 @@ app.get("/",function(req, res) {
 
 app.use('/public',express.static(path.join(__dirname, '/public')));
 
-app.get('/json',function(req, res) {
-  res.json({message: "Hello json"});
-})
+app.get("/json", (req, res) => {
+  res.json({
+    message: "Hello json"
+  });
+});
 
 
 
