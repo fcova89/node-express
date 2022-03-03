@@ -1,11 +1,13 @@
 var express = require('express');
 const path = require('path');
+require('dotenv').config()
 //var http = require('http');
+var jsonObj = {message: "Hello json"};
 
 var app = express();
 
 app.listen(3000, function(req, res) {
-  console.log("Server is running at port 3000");
+  console.log(process.env.MESSAGE_STYLE);
 });
 
 app.get("/",function(req, res) {
@@ -17,7 +19,11 @@ app.use('/public',express.static(path.join(__dirname, '/public')));
 
 app.get('/json', (req, res) => {
   //res.setHeader('Content-Type', 'application/json');
-  res.json({message: "Hello json"});
+  if(process.env.MESSAGE_STYLE == 'uppercase'){
+    jsonObj = jsonObj.message.toUpperCase();
+    res.json(jsonObj);
+  }
+  res.json(jsonObj);
 });
 
 
