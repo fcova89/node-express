@@ -1,7 +1,6 @@
 var express = require('express');
 const path = require('path');
-require('dotenv').config()
-//var http = require('http');
+//require('dotenv').config()
 var jsonObj = {message: "Hello json"};
 
 var app = express();
@@ -13,10 +12,10 @@ app.get("/",function(req, res) {
     //res.sendFile(__dirname/views/index.html);
 })
 
-app.use('/public',express.static(path.join(__dirname, '/public')));
+app.use('/public',express.static(path.join(__dirname, '/public'))); //middleware per utilizzare style.css
 
 app.get('/json', (req, res) => {
-  //res.setHeader('Content-Type', 'application/json');
+  //res.setHeader('Content-Type', 'application/json'); // da verificare
   if(process.env.MESSAGE_STYLE == 'uppercase'){
     jsonObj.message = jsonObj.message.toUpperCase();
     res.json(jsonObj);
