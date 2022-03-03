@@ -12,40 +12,9 @@ app.use('/public',express.static(path.join(__dirname, '/public')));
 app.get('/json', (req, res) => {
   //res.setHeader('Content-Type', 'application/json'); // da verificare per impostare contenuto
   if(process.env.MESSAGE_STYLE == 'uppercase'){
-    var jsonObj.message = jsonObj.message.toUpperCase();
+    jsonObj.message = jsonObj.message.toUpperCase();
     console.log(jsonObj);
     res.json(jsonObj);
   }
     res.json(jsonObj);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+});
